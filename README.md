@@ -1,8 +1,5 @@
 # Dysarthric Speech Detection on TORGO
 
-> **One line for a professor:** detecting dysarthria — slurred speech caused by
-> conditions such as cerebral palsy or ALS — from a short recording, as an early
-> screening aid.
 
 Binary detection (dysarthric vs. control) on the University of Toronto **TORGO**
 corpus, evaluated **leave-one-speaker-out** across all 15 speakers, with two
