@@ -1,0 +1,89 @@
+,control,mild,moderate,severe,readable
+F0semitoneFrom27.5Hz_sma3nz_amean,0.13510637,0.09102791,0.09607358,0.1343173,Pitch (mean)
+F0semitoneFrom27.5Hz_sma3nz_stddevNorm,0.81409687,0.7238604,0.44004068,0.43055674,Pitch variation
+F0semitoneFrom27.5Hz_sma3nz_percentile20.0,0.042430274,0.05394843,0.06240137,0.065833814,Pitch floor (20th pct)
+F0semitoneFrom27.5Hz_sma3nz_percentile50.0,0.19753075,0.08943589,0.1720777,0.20111798,Pitch (median)
+F0semitoneFrom27.5Hz_sma3nz_percentile80.0,0.65892714,0.23095338,0.6804938,0.36545157,Pitch ceiling (80th pct)
+F0semitoneFrom27.5Hz_sma3nz_pctlrange0-2,0.043232344,0.07631176,0.03871793,0.022244401,Pitch range
+F0semitoneFrom27.5Hz_sma3nz_meanRisingSlope,0.020544916,0.028916659,0.027590008,0.041130003,F0semitoneFrom27.5Hz_sma3nz_meanRisingSlope
+F0semitoneFrom27.5Hz_sma3nz_stddevRisingSlope,0.06926023,0.09801097,0.05174307,0.067216165,F0semitoneFrom27.5Hz_sma3nz_stddevRisingSlope
+F0semitoneFrom27.5Hz_sma3nz_meanFallingSlope,0.03755132,0.017333638,0.02376684,0.028246254,F0semitoneFrom27.5Hz_sma3nz_meanFallingSlope
+F0semitoneFrom27.5Hz_sma3nz_stddevFallingSlope,0.037779152,0.059396777,0.08757837,0.060614407,F0semitoneFrom27.5Hz_sma3nz_stddevFallingSlope
+loudness_sma3_amean,0.042957943,0.043047085,0.036603786,0.04198892,Loudness (mean)
+loudness_sma3_stddevNorm,0.35018104,0.34991765,0.5637737,0.30675787,Loudness variation
+loudness_sma3_percentile20.0,1.9620577,2.0166337,1.8525288,2.2587285,Loudness in quiet passages (20th pct)
+loudness_sma3_percentile50.0,0.62862885,0.4839012,0.4906667,0.5052283,Loudness (median)
+loudness_sma3_percentile80.0,0.05149001,0.06042469,0.027265487,0.038903076,Loudness in loud passages (80th pct)
+loudness_sma3_pctlrange0-2,0.047221128,0.04425033,0.022062052,0.026466478,loudness_sma3_pctlrange0-2
+loudness_sma3_meanRisingSlope,0.035111286,0.059465647,0.015648553,0.02701881,loudness_sma3_meanRisingSlope
+loudness_sma3_stddevRisingSlope,0.059618983,0.09925267,0.039386485,0.058852915,loudness_sma3_stddevRisingSlope
+loudness_sma3_meanFallingSlope,0.02575489,0.05843877,0.024349146,0.032417208,loudness_sma3_meanFallingSlope
+loudness_sma3_stddevFallingSlope,0.016421374,0.016349241,0.027031774,0.018770715,loudness_sma3_stddevFallingSlope
+spectralFlux_sma3_amean,0.021406911,0.013783345,0.012913191,0.016838856,Spectral flux (rate of spectral change)
+spectralFlux_sma3_stddevNorm,0.35706082,0.23632492,0.38877916,0.26156858,Spectral flux variation (rate of spectral change)
+mfcc1_sma3_amean,0.046903495,0.025108164,0.09673815,0.029847322,mfcc1_sma3_amean
+mfcc1_sma3_stddevNorm,0.12793022,0.13790792,0.1214891,0.075448655,mfcc1_sma3_stddevNorm
+mfcc2_sma3_amean,0.05389439,0.026371883,0.050693285,0.079241246,mfcc2_sma3_amean
+mfcc2_sma3_stddevNorm,0.09645013,0.08212344,0.09613134,0.14397825,mfcc2_sma3_stddevNorm
+mfcc3_sma3_amean,0.08180001,0.11610449,0.048414927,0.120533384,mfcc3_sma3_amean
+mfcc3_sma3_stddevNorm,0.19638641,0.20584524,0.19280395,0.15862525,MFCC3 variation
+mfcc4_sma3_amean,0.13373984,0.07578998,0.06082713,0.14402707,mfcc4_sma3_amean
+mfcc4_sma3_stddevNorm,0.06616228,0.040882893,0.062229887,0.032062702,MFCC4 variation
+jitterLocal_sma3nz_amean,0.04754234,0.021955347,0.009153758,0.04753498,Jitter (pitch perturbation)
+jitterLocal_sma3nz_stddevNorm,0.01338007,0.0075151757,0.021312347,0.011012213,jitterLocal_sma3nz_stddevNorm
+shimmerLocaldB_sma3nz_amean,0.033852674,0.021089675,0.027907517,0.060502082,Shimmer (amplitude perturbation)
+shimmerLocaldB_sma3nz_stddevNorm,0.047885302,0.11628339,0.06721518,0.086740084,shimmerLocaldB_sma3nz_stddevNorm
+HNRdBACF_sma3nz_amean,0.119853064,0.07029316,0.13903844,0.10872814,Harmonics-to-noise ratio
+HNRdBACF_sma3nz_stddevNorm,0.04795244,0.017597895,0.044583585,0.038124513,HNRdBACF_sma3nz_stddevNorm
+logRelF0-H1-H2_sma3nz_amean,0.86596686,0.53861976,0.24334706,0.49082413,H1-H2 (glottal source / breathiness)
+logRelF0-H1-H2_sma3nz_stddevNorm,0.0130688045,0.02685331,0.0059713433,0.006496318,logRelF0-H1-H2_sma3nz_stddevNorm
+logRelF0-H1-A3_sma3nz_amean,0.07416305,0.044913802,0.055970915,0.111317806,H1-A3 (spectral decay of the voice source)
+logRelF0-H1-A3_sma3nz_stddevNorm,0.023290038,0.02402485,0.02105435,0.027939199,logRelF0-H1-A3_sma3nz_stddevNorm
+F1frequency_sma3nz_amean,0.012135573,0.022123877,0.014039945,0.020626865,F1 frequency (mean)
+F1frequency_sma3nz_stddevNorm,0.18125273,0.18319285,0.3120467,0.27701876,F1 frequency variation
+F1bandwidth_sma3nz_amean,0.015924945,0.013280383,0.017289892,0.011913328,F1 bandwidth
+F1bandwidth_sma3nz_stddevNorm,0.023260979,0.037511956,0.032562017,0.036802877,F1bandwidth_sma3nz_stddevNorm
+F1amplitudeLogRelF0_sma3nz_amean,0.037627943,0.012473365,0.039208353,0.032835964,F1 amplitude relative to F0
+F1amplitudeLogRelF0_sma3nz_stddevNorm,0.031354733,0.022168824,0.032909796,0.047114648,F1amplitudeLogRelF0_sma3nz_stddevNorm
+F2frequency_sma3nz_amean,0.025937421,0.01905753,0.030714013,0.019565031,F2 frequency (mean)
+F2frequency_sma3nz_stddevNorm,0.01671698,0.012609886,0.03504294,0.016091064,F2 frequency variation
+F2bandwidth_sma3nz_amean,0.030291881,0.015351345,0.0288251,0.016003147,F2bandwidth_sma3nz_amean
+F2bandwidth_sma3nz_stddevNorm,0.0067119496,0.01910618,0.009368221,0.0066886614,F2bandwidth_sma3nz_stddevNorm
+F2amplitudeLogRelF0_sma3nz_amean,0.010774829,0.0043273037,0.0044978196,0.015539502,F2amplitudeLogRelF0_sma3nz_amean
+F2amplitudeLogRelF0_sma3nz_stddevNorm,0.0073823994,0.010675708,0.0030246805,0.010290876,F2amplitudeLogRelF0_sma3nz_stddevNorm
+F3frequency_sma3nz_amean,0.034392066,0.0098165525,0.02202863,0.0092958035,F3 frequency (mean)
+F3frequency_sma3nz_stddevNorm,0.10775192,0.07834342,0.14974019,0.10382072,F3 frequency variation
+F3bandwidth_sma3nz_amean,0.10550993,0.105943926,0.10472802,0.1284955,F3bandwidth_sma3nz_amean
+F3bandwidth_sma3nz_stddevNorm,0.11019179,0.109298214,0.12949821,0.103676245,F3bandwidth_sma3nz_stddevNorm
+F3amplitudeLogRelF0_sma3nz_amean,0.016088216,0.003691655,0.010615022,0.00910418,F3amplitudeLogRelF0_sma3nz_amean
+F3amplitudeLogRelF0_sma3nz_stddevNorm,0.016205253,0.014914945,0.005064061,0.011314066,F3amplitudeLogRelF0_sma3nz_stddevNorm
+alphaRatioV_sma3nz_amean,0.07698565,0.09047143,0.06962456,0.054561567,"Alpha ratio (spectral tilt, voiced)"
+alphaRatioV_sma3nz_stddevNorm,0.081848495,0.23762575,0.07135065,0.09704856,alphaRatioV_sma3nz_stddevNorm
+hammarbergIndexV_sma3nz_amean,0.05105721,0.04968965,0.06602429,0.05620279,Hammarberg index (voiced)
+hammarbergIndexV_sma3nz_stddevNorm,0.01605066,0.05633385,0.041493185,0.011203999,hammarbergIndexV_sma3nz_stddevNorm
+slopeV0-500_sma3nz_amean,0.05779618,0.067689985,0.043073073,0.03671079,Spectral slope 0-500 Hz
+slopeV0-500_sma3nz_stddevNorm,0.11449557,0.16864307,0.078480706,0.1352674,"Spectral slope 0-500 Hz, variation"
+slopeV500-1500_sma3nz_amean,0.028719712,0.07665136,0.022210466,0.051854853,slopeV500-1500_sma3nz_amean
+slopeV500-1500_sma3nz_stddevNorm,0.33767352,0.16040981,0.14129251,0.18938944,"Spectral slope 500-1500 Hz, variation"
+spectralFluxV_sma3nz_amean,0.11418934,0.07014418,0.049479745,0.047599215,Spectral flux (voiced)
+spectralFluxV_sma3nz_stddevNorm,0.08647787,0.08155102,0.09830163,0.047398515,spectralFluxV_sma3nz_stddevNorm
+mfcc1V_sma3nz_amean,0.0691244,0.21022001,0.053061377,0.13388425,mfcc1V_sma3nz_amean
+mfcc1V_sma3nz_stddevNorm,0.37486663,0.3197322,0.22969215,0.21864818,MFCC1 variation (voiced)
+mfcc2V_sma3nz_amean,0.019734804,0.034373008,0.048798546,0.007965772,mfcc2V_sma3nz_amean
+mfcc2V_sma3nz_stddevNorm,0.023909094,0.06814222,0.09324167,0.03142014,MFCC2 variation (voiced)
+mfcc3V_sma3nz_amean,0.041414414,0.19212218,0.1184013,0.041500468,mfcc3V_sma3nz_amean
+mfcc3V_sma3nz_stddevNorm,0.031768233,0.03729999,0.00497968,0.019943828,mfcc3V_sma3nz_stddevNorm
+mfcc4V_sma3nz_amean,0.13520369,0.22449848,0.04433897,0.091859125,mfcc4V_sma3nz_amean
+mfcc4V_sma3nz_stddevNorm,0.036686286,0.02569874,0.029794946,0.019683728,mfcc4V_sma3nz_stddevNorm
+alphaRatioUV_sma3nz_amean,0.021848926,0.027391009,0.03821297,0.018362783,"Alpha ratio (spectral tilt, unvoiced)"
+hammarbergIndexUV_sma3nz_amean,0.020079333,0.04488321,0.0623211,0.044658765,Hammarberg index (unvoiced)
+slopeUV0-500_sma3nz_amean,0.049062666,0.06700616,0.10535714,0.061145898,slopeUV0-500_sma3nz_amean
+slopeUV500-1500_sma3nz_amean,0.16227455,0.12746568,0.084348924,0.24748401,slopeUV500-1500_sma3nz_amean
+spectralFluxUV_sma3nz_amean,0.11147405,0.041427333,0.04100332,0.06185968,spectralFluxUV_sma3nz_amean
+loudnessPeaksPerSec,0.19739042,0.299656,0.20122455,0.14357212,Syllable rate (loudness peaks/s)
+VoicedSegmentsPerSec,0.024406277,0.06344299,0.051417325,0.035804372,Speaking rate (voiced segments/s)
+MeanVoicedSegmentLengthSec,0.031813238,0.046496585,0.028809318,0.03992704,Mean voiced segment length
+StddevVoicedSegmentLengthSec,0.01696303,0.0114876265,0.027198443,0.02211053,Voiced segment length variation
+MeanUnvoicedSegmentLength,0.23273058,0.31057876,0.29823846,0.16183278,Mean pause length
+StddevUnvoicedSegmentLength,0.29234222,0.33797294,0.34612677,0.32180148,Pause length variation
+equivalentSoundLevel_dBp,0.35551032,0.30402198,0.89471155,0.27906632,Equivalent sound level (dB)

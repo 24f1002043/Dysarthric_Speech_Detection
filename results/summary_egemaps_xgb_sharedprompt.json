@@ -1,0 +1,19 @@
+{
+  "utt_accuracy": 0.7292024348368972,
+  "utt_balanced_accuracy": 0.7322685242569227,
+  "utt_f1": 0.7078632766459,
+  "utt_auc": 0.771384417065371,
+  "utt_sensitivity": 0.7555715312724659,
+  "utt_specificity": 0.7089655172413794,
+  "speaker_accuracy": 0.8666666666666667,
+  "speaker_correct": "13/15",
+  "macro_speaker_utt_acc": 0.7767302759052553,
+  "n_utts": 6407,
+  "n_speakers": 15,
+  "name": "egemaps_xgb_sharedprompt",
+  "model": "xgb",
+  "mic": "head",
+  "shared_prompts": true,
+  "features": "egemaps.parquet",
+  "n_features": 88
+}

@@ -1,0 +1,20 @@
+{
+  "utt_accuracy": 0.8032724984266835,
+  "utt_balanced_accuracy": 0.7980265710387031,
+  "utt_f1": 0.7396301849075462,
+  "utt_auc": 0.870066875370619,
+  "utt_sensitivity": 0.7794943820224719,
+  "utt_specificity": 0.8165587600549343,
+  "speaker_accuracy": 0.8666666666666667,
+  "speaker_correct": "13/15",
+  "macro_speaker_utt_acc": 0.8168107080404271,
+  "n_utts": 7945,
+  "n_speakers": 15,
+  "name": "wavlm_mlp",
+  "model": "mlp",
+  "mic": "head",
+  "shared_prompts": false,
+  "no_level_features": false,
+  "features": "wavlm_head.parquet",
+  "n_features": 1536
+}

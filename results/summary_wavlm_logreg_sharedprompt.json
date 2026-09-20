@@ -1,0 +1,20 @@
+{
+  "utt_accuracy": 0.8052130482285,
+  "utt_balanced_accuracy": 0.8019904806762685,
+  "utt_f1": 0.7761033369214209,
+  "utt_auc": 0.8747312526339275,
+  "utt_sensitivity": 0.7774982027318476,
+  "utt_specificity": 0.8264827586206897,
+  "speaker_accuracy": 0.9333333333333333,
+  "speaker_correct": "14/15",
+  "macro_speaker_utt_acc": 0.8249745492329071,
+  "n_utts": 6407,
+  "n_speakers": 15,
+  "name": "wavlm_logreg_sharedprompt",
+  "model": "logreg",
+  "mic": "head",
+  "shared_prompts": true,
+  "no_level_features": false,
+  "features": "wavlm_head.parquet",
+  "n_features": 1536
+}

@@ -1,0 +1,14 @@
+# TORGO audio is used under an academic licence -- never commit or redistribute it.
+data/
+
+# Derived artefacts: regenerate with scripts/run_all.sh
+features/
+logs/
+results/_smoke/
+results/*.zip
+
+# Environment
+.venv/
+__pycache__/
+*.pyc
+results/shap_values.npz

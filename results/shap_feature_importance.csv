@@ -1,0 +1,89 @@
+feature,readable,mean_abs_shap
+loudness_sma3_percentile20.0,Loudness in quiet passages (20th pct),1.9961121
+logRelF0-H1-H2_sma3nz_amean,H1-H2 (glottal source / breathiness),0.70344806
+F0semitoneFrom27.5Hz_sma3nz_stddevNorm,Pitch variation,0.7018694
+F0semitoneFrom27.5Hz_sma3nz_percentile80.0,Pitch ceiling (80th pct),0.5833897
+loudness_sma3_percentile50.0,Loudness (median),0.58076596
+equivalentSoundLevel_dBp,Equivalent sound level (dB),0.40965593
+loudness_sma3_stddevNorm,Loudness variation,0.3713428
+spectralFlux_sma3_stddevNorm,Spectral flux variation (rate of spectral change),0.33718982
+mfcc1V_sma3nz_stddevNorm,MFCC1 variation (voiced),0.32857633
+StddevUnvoicedSegmentLength,Pause length variation,0.30736867
+slopeV500-1500_sma3nz_stddevNorm,"Spectral slope 500-1500 Hz, variation",0.27593312
+MeanUnvoicedSegmentLength,Mean pause length,0.23711915
+F1frequency_sma3nz_stddevNorm,F1 frequency variation,0.21241665
+loudnessPeaksPerSec,Syllable rate (loudness peaks/s),0.19833344
+mfcc3_sma3_stddevNorm,MFCC3 variation,0.19113334
+F0semitoneFrom27.5Hz_sma3nz_percentile50.0,Pitch (median),0.18591547
+slopeUV500-1500_sma3nz_amean,slopeUV500-1500_sma3nz_amean,0.16191782
+F0semitoneFrom27.5Hz_sma3nz_amean,Pitch (mean),0.12633787
+mfcc4V_sma3nz_amean,mfcc4V_sma3nz_amean,0.124397576
+mfcc4_sma3_amean,mfcc4_sma3_amean,0.12109209
+mfcc1_sma3_stddevNorm,mfcc1_sma3_stddevNorm,0.12018082
+slopeV0-500_sma3nz_stddevNorm,"Spectral slope 0-500 Hz, variation",0.11734306
+HNRdBACF_sma3nz_amean,Harmonics-to-noise ratio,0.11663019
+F3bandwidth_sma3nz_stddevNorm,F3bandwidth_sma3nz_stddevNorm,0.11165153
+F3frequency_sma3nz_stddevNorm,F3 frequency variation,0.11018485
+F3bandwidth_sma3nz_amean,F3bandwidth_sma3nz_amean,0.10883256
+mfcc2_sma3_stddevNorm,mfcc2_sma3_stddevNorm,0.10224005
+alphaRatioV_sma3nz_stddevNorm,alphaRatioV_sma3nz_stddevNorm,0.095496975
+spectralFluxV_sma3nz_amean,Spectral flux (voiced),0.092409305
+spectralFluxUV_sma3nz_amean,spectralFluxUV_sma3nz_amean,0.08932153
+mfcc1V_sma3nz_amean,mfcc1V_sma3nz_amean,0.08815624
+mfcc3_sma3_amean,mfcc3_sma3_amean,0.086008586
+spectralFluxV_sma3nz_stddevNorm,spectralFluxV_sma3nz_stddevNorm,0.081841275
+logRelF0-H1-A3_sma3nz_amean,H1-A3 (spectral decay of the voice source),0.07489318
+alphaRatioV_sma3nz_amean,"Alpha ratio (spectral tilt, voiced)",0.07383507
+F0semitoneFrom27.5Hz_sma3nz_stddevRisingSlope,F0semitoneFrom27.5Hz_sma3nz_stddevRisingSlope,0.069052614
+mfcc3V_sma3nz_amean,mfcc3V_sma3nz_amean,0.0637178
+shimmerLocaldB_sma3nz_stddevNorm,shimmerLocaldB_sma3nz_stddevNorm,0.06171269
+loudness_sma3_stddevRisingSlope,loudness_sma3_stddevRisingSlope,0.06014081
+slopeUV0-500_sma3nz_amean,slopeUV0-500_sma3nz_amean,0.05958367
+mfcc4_sma3_stddevNorm,MFCC4 variation,0.05855732
+mfcc2_sma3_amean,mfcc2_sma3_amean,0.054961734
+hammarbergIndexV_sma3nz_amean,Hammarberg index (voiced),0.053636387
+slopeV0-500_sma3nz_amean,Spectral slope 0-500 Hz,0.053597823
+F0semitoneFrom27.5Hz_sma3nz_percentile20.0,Pitch floor (20th pct),0.049402576
+F0semitoneFrom27.5Hz_sma3nz_stddevFallingSlope,F0semitoneFrom27.5Hz_sma3nz_stddevFallingSlope,0.049347226
+mfcc1_sma3_amean,mfcc1_sma3_amean,0.04903932
+loudness_sma3_percentile80.0,Loudness in loud passages (80th pct),0.047238667
+HNRdBACF_sma3nz_stddevNorm,HNRdBACF_sma3nz_stddevNorm,0.043581583
+F0semitoneFrom27.5Hz_sma3nz_pctlrange0-2,Pitch range,0.04226634
+loudness_sma3_amean,Loudness (mean),0.042001918
+loudness_sma3_pctlrange0-2,loudness_sma3_pctlrange0-2,0.04066967
+jitterLocal_sma3nz_amean,Jitter (pitch perturbation),0.040487397
+mfcc2V_sma3nz_stddevNorm,MFCC2 variation (voiced),0.037593916
+shimmerLocaldB_sma3nz_amean,Shimmer (amplitude perturbation),0.035966948
+slopeV500-1500_sma3nz_amean,slopeV500-1500_sma3nz_amean,0.035216603
+F1amplitudeLogRelF0_sma3nz_amean,F1 amplitude relative to F0,0.035064552
+MeanVoicedSegmentLengthSec,Mean voiced segment length,0.033824425
+loudness_sma3_meanRisingSlope,loudness_sma3_meanRisingSlope,0.033400793
+F1amplitudeLogRelF0_sma3nz_stddevNorm,F1amplitudeLogRelF0_sma3nz_stddevNorm,0.033125672
+VoicedSegmentsPerSec,Speaking rate (voiced segments/s),0.032773048
+F0semitoneFrom27.5Hz_sma3nz_meanFallingSlope,F0semitoneFrom27.5Hz_sma3nz_meanFallingSlope,0.032743137
+mfcc4V_sma3nz_stddevNorm,mfcc4V_sma3nz_stddevNorm,0.03239013
+hammarbergIndexUV_sma3nz_amean,Hammarberg index (unvoiced),0.03118947
+loudness_sma3_meanFallingSlope,loudness_sma3_meanFallingSlope,0.029233417
+F1bandwidth_sma3nz_stddevNorm,F1bandwidth_sma3nz_stddevNorm,0.027625723
+F3frequency_sma3nz_amean,F3 frequency (mean),0.027082823
+mfcc3V_sma3nz_stddevNorm,mfcc3V_sma3nz_stddevNorm,0.027019372
+F2bandwidth_sma3nz_amean,F2bandwidth_sma3nz_amean,0.026772175
+F0semitoneFrom27.5Hz_sma3nz_meanRisingSlope,F0semitoneFrom27.5Hz_sma3nz_meanRisingSlope,0.025174506
+F2frequency_sma3nz_amean,F2 frequency (mean),0.025051333
+alphaRatioUV_sma3nz_amean,"Alpha ratio (spectral tilt, unvoiced)",0.023902407
+logRelF0-H1-A3_sma3nz_stddevNorm,logRelF0-H1-A3_sma3nz_stddevNorm,0.023746697
+mfcc2V_sma3nz_amean,mfcc2V_sma3nz_amean,0.022952842
+hammarbergIndexV_sma3nz_stddevNorm,hammarbergIndexV_sma3nz_stddevNorm,0.021922663
+spectralFlux_sma3_amean,Spectral flux (rate of spectral change),0.019012053
+F2frequency_sma3nz_stddevNorm,F2 frequency variation,0.01865482
+StddevVoicedSegmentLengthSec,Voiced segment length variation,0.018594922
+loudness_sma3_stddevFallingSlope,loudness_sma3_stddevFallingSlope,0.018132009
+F1bandwidth_sma3nz_amean,F1 bandwidth,0.0152931595
+F1frequency_sma3nz_amean,F1 frequency (mean),0.0144514
+F3amplitudeLogRelF0_sma3nz_stddevNorm,F3amplitudeLogRelF0_sma3nz_stddevNorm,0.013939751
+jitterLocal_sma3nz_stddevNorm,jitterLocal_sma3nz_stddevNorm,0.0135750165
+F3amplitudeLogRelF0_sma3nz_amean,F3amplitudeLogRelF0_sma3nz_amean,0.013336333
+logRelF0-H1-H2_sma3nz_stddevNorm,logRelF0-H1-H2_sma3nz_stddevNorm,0.012313073
+F2amplitudeLogRelF0_sma3nz_amean,F2amplitudeLogRelF0_sma3nz_amean,0.010138158
+F2bandwidth_sma3nz_stddevNorm,F2bandwidth_sma3nz_stddevNorm,0.008067112
+F2amplitudeLogRelF0_sma3nz_stddevNorm,F2amplitudeLogRelF0_sma3nz_stddevNorm,0.007518137

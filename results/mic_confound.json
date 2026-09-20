@@ -1,0 +1,56 @@
+{
+  "A_matched_head": {
+    "train_mic": "head",
+    "test_mic": "head",
+    "n_utts": 7945,
+    "utt_accuracy": 0.7200755191944619,
+    "utt_auc": 0.7650313896365565,
+    "speaker_accuracy": 0.8666666666666667
+  },
+  "A_matched_array": {
+    "train_mic": "array",
+    "test_mic": "array",
+    "n_utts": 9171,
+    "utt_accuracy": 0.5564278704612365,
+    "utt_auc": 0.5898468179091665,
+    "speaker_accuracy": 0.6666666666666666
+  },
+  "B_mismatch_head_to_array": {
+    "train_mic": "head",
+    "test_mic": "array",
+    "n_utts": 9171,
+    "utt_accuracy": 0.23279904045360375,
+    "utt_auc": 0.13500526511331218,
+    "speaker_accuracy": 0.4
+  },
+  "B_mismatch_array_to_head": {
+    "train_mic": "array",
+    "test_mic": "head",
+    "n_utts": 7945,
+    "utt_accuracy": 0.2532410320956576,
+    "utt_auc": 0.282892710076207,
+    "speaker_accuracy": 0.2
+  },
+  "C_channel_probe": {
+    "task": "predict microphone",
+    "utt_accuracy": 0.9949754615564385,
+    "utt_auc": 0.9999088845396662,
+    "n_utts": 17116
+  },
+  "D_confounded_dys_head": {
+    "dysarthric_mic": "head",
+    "control_mic": "array",
+    "utt_accuracy": 0.9678391959798995,
+    "utt_auc": 0.9990565026687004,
+    "speaker_accuracy": 1.0,
+    "n_utts": 8955
+  },
+  "D_confounded_dys_array": {
+    "dysarthric_mic": "array",
+    "control_mic": "head",
+    "utt_accuracy": 0.992525425805661,
+    "utt_auc": 0.9997609047660759,
+    "speaker_accuracy": 1.0,
+    "n_utts": 8161
+  }
+}
