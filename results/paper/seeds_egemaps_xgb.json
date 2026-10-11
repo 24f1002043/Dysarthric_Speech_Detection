@@ -1,0 +1,52 @@
+[
+  {
+    "seed": 0,
+    "n_utts": 7945,
+    "utt_accuracy": 0.7232221522970421,
+    "utt_balanced_accuracy": 0.720608743742188,
+    "utt_auc": 0.7712260654537919,
+    "speaker_correct": 13,
+    "n_speakers": 15,
+    "speaker_auc": 0.8392857142857143
+  },
+  {
+    "seed": 1,
+    "n_utts": 7945,
+    "utt_accuracy": 0.7222152297042165,
+    "utt_balanced_accuracy": 0.7183521357022087,
+    "utt_auc": 0.764693044818168,
+    "speaker_correct": 13,
+    "n_speakers": 15,
+    "speaker_auc": 0.8392857142857143
+  },
+  {
+    "seed": 2,
+    "n_utts": 7945,
+    "utt_accuracy": 0.7242290748898679,
+    "utt_balanced_accuracy": 0.720696335198277,
+    "utt_auc": 0.768648644664299,
+    "speaker_correct": 13,
+    "n_speakers": 15,
+    "speaker_auc": 0.8392857142857143
+  },
+  {
+    "seed": 3,
+    "n_utts": 7945,
+    "utt_accuracy": 0.7235997482693518,
+    "utt_balanced_accuracy": 0.7196635964535207,
+    "utt_auc": 0.7641622261277288,
+    "speaker_correct": 13,
+    "n_speakers": 15,
+    "speaker_auc": 0.8571428571428572
+  },
+  {
+    "seed": 4,
+    "n_utts": 7945,
+    "utt_accuracy": 0.7169288860918817,
+    "utt_balanced_accuracy": 0.7134574162924655,
+    "utt_auc": 0.7615132304087224,
+    "speaker_correct": 13,
+    "n_speakers": 15,
+    "speaker_auc": 0.8392857142857143
+  }
+]

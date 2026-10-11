@@ -1,0 +1,34 @@
+{
+  "egemaps_xgb": {
+    "sex_F": {
+      "n_speakers": 6,
+      "n_utts": 3026,
+      "auc": 0.717526892326888,
+      "sensitivity": 0.4504896626768226,
+      "specificity": 0.8490745135263408
+    },
+    "sex_M": {
+      "n_speakers": 9,
+      "n_utts": 4919,
+      "auc": 0.7950020025278663,
+      "sensitivity": 0.8232244686365993,
+      "specificity": 0.6454849498327759
+    }
+  },
+  "wavlm_logreg": {
+    "sex_F": {
+      "n_speakers": 6,
+      "n_utts": 3026,
+      "auc": 0.6869252344508925,
+      "sensitivity": 0.529923830250272,
+      "specificity": 0.7740863787375415
+    },
+    "sex_M": {
+      "n_speakers": 9,
+      "n_utts": 4919,
+      "auc": 0.9605151784677106,
+      "sensitivity": 0.8921721099015034,
+      "specificity": 0.9003344481605351
+    }
+  }
+}

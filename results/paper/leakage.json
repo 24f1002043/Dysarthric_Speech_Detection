@@ -1,0 +1,42 @@
+{
+  "egemaps_xgb": {
+    "loso": {
+      "n_utts": 7945,
+      "utt_accuracy": 0.7232221522970421,
+      "utt_balanced_accuracy": 0.720608743742188,
+      "utt_auc": 0.7712260654537919,
+      "speaker_correct": 13,
+      "n_speakers": 15,
+      "speaker_auc": 0.8392857142857143
+    },
+    "utterance_kfold": {
+      "n_utts": 7945,
+      "utt_accuracy": 0.9909376966645689,
+      "utt_balanced_accuracy": 0.9903806808036453,
+      "utt_auc": 0.9993857231506525,
+      "speaker_correct": 15,
+      "n_speakers": 15,
+      "speaker_auc": 1.0
+    }
+  },
+  "wavlm_logreg": {
+    "loso": {
+      "n_utts": 7945,
+      "utt_accuracy": 0.822278162366268,
+      "utt_balanced_accuracy": 0.8116772327520264,
+      "utt_auc": 0.8824306005625693,
+      "speaker_correct": 14,
+      "n_speakers": 15,
+      "speaker_auc": 0.9821428571428572
+    },
+    "utterance_kfold": {
+      "n_utts": 7945,
+      "utt_accuracy": 0.9743234738829453,
+      "utt_balanced_accuracy": 0.9714670917900594,
+      "utt_auc": 0.9954615708072385,
+      "speaker_correct": 15,
+      "n_speakers": 15,
+      "speaker_auc": 1.0
+    }
+  }
+}

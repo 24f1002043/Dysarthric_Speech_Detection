@@ -1,0 +1,162 @@
+{
+  "egemaps_xgb": {
+    "A_head_to_head": {
+      "n_utts": 7945,
+      "utt_accuracy": 0.7232221522970421,
+      "utt_balanced_accuracy": 0.720608743742188,
+      "utt_auc": 0.7712260654537919,
+      "speaker_correct": 13,
+      "n_speakers": 15,
+      "speaker_auc": 0.8392857142857143
+    },
+    "A_array_to_array": {
+      "n_utts": 9171,
+      "utt_accuracy": 0.5567549885508669,
+      "utt_balanced_accuracy": 0.5564380920580372,
+      "utt_auc": 0.5930766699259208,
+      "speaker_correct": 10,
+      "n_speakers": 15,
+      "speaker_auc": 0.7678571428571429
+    },
+    "B_head_to_array": {
+      "n_utts": 9171,
+      "utt_accuracy": 0.23236288300076327,
+      "utt_balanced_accuracy": 0.3333557968192131,
+      "utt_auc": 0.13849412415064508,
+      "speaker_correct": 5,
+      "n_speakers": 15,
+      "speaker_auc": 0.017857142857142863
+    },
+    "B_array_to_head": {
+      "n_utts": 7945,
+      "utt_accuracy": 0.24531151667715545,
+      "utt_balanced_accuracy": 0.2870924155650052,
+      "utt_auc": 0.29603297847599275,
+      "speaker_correct": 3,
+      "n_speakers": 15,
+      "speaker_auc": 0.14285714285714285
+    },
+    "P_pooled_to_head": {
+      "n_utts": 7945,
+      "utt_accuracy": 0.7191944619257394,
+      "utt_balanced_accuracy": 0.7108851276803054,
+      "utt_auc": 0.7273499792232929,
+      "speaker_correct": 12,
+      "n_speakers": 15,
+      "speaker_auc": 0.8214285714285714
+    },
+    "P_pooled_to_array": {
+      "n_utts": 9171,
+      "utt_accuracy": 0.5386544542579871,
+      "utt_balanced_accuracy": 0.5404890794324537,
+      "utt_auc": 0.5256772072966818,
+      "speaker_correct": 10,
+      "n_speakers": 15,
+      "speaker_auc": 0.6428571428571428
+    },
+    "D_dys_head_ctl_array": {
+      "n_utts": 8955,
+      "utt_accuracy": 0.9678391959798995,
+      "utt_balanced_accuracy": 0.9738909105502436,
+      "utt_auc": 0.9990648394824138,
+      "speaker_correct": 15,
+      "n_speakers": 15,
+      "speaker_auc": 1.0
+    },
+    "D_dys_array_ctl_head": {
+      "n_utts": 8161,
+      "utt_accuracy": 0.9931380958215905,
+      "utt_balanced_accuracy": 0.9935302456111234,
+      "utt_auc": 0.9998156520678985,
+      "speaker_correct": 15,
+      "n_speakers": 15,
+      "speaker_auc": 1.0
+    },
+    "C_channel_probe": {
+      "n_utts": 17116,
+      "utt_accuracy": 0.995384435615798,
+      "utt_balanced_accuracy": 0.9954153167984643,
+      "utt_auc": 0.999903134068529
+    }
+  },
+  "egemaps_xgb_nolevel": {
+    "A_head_to_head": {
+      "n_utts": 7945,
+      "utt_accuracy": 0.5769666456891126,
+      "utt_balanced_accuracy": 0.5743947337385067,
+      "utt_auc": 0.5950925293684542,
+      "speaker_correct": 10,
+      "n_speakers": 15,
+      "speaker_auc": 0.6964285714285714
+    },
+    "A_array_to_array": {
+      "n_utts": 9171,
+      "utt_accuracy": 0.5878312070657508,
+      "utt_balanced_accuracy": 0.5770886713060088,
+      "utt_auc": 0.5928932834426616,
+      "speaker_correct": 10,
+      "n_speakers": 15,
+      "speaker_auc": 0.8214285714285715
+    },
+    "B_head_to_array": {
+      "n_utts": 9171,
+      "utt_accuracy": 0.30749100425253517,
+      "utt_balanced_accuracy": 0.44416428029983995,
+      "utt_auc": 0.2862219968866784,
+      "speaker_correct": 6,
+      "n_speakers": 15,
+      "speaker_auc": 0.1607142857142857
+    },
+    "B_array_to_head": {
+      "n_utts": 7945,
+      "utt_accuracy": 0.34298300818124605,
+      "utt_balanced_accuracy": 0.394743830640628,
+      "utt_auc": 0.4025915842211656,
+      "speaker_correct": 6,
+      "n_speakers": 15,
+      "speaker_auc": 0.33928571428571436
+    },
+    "P_pooled_to_head": {
+      "n_utts": 7945,
+      "utt_accuracy": 0.6089364380113279,
+      "utt_balanced_accuracy": 0.6060507957423733,
+      "utt_auc": 0.6073091780690557,
+      "speaker_correct": 11,
+      "n_speakers": 15,
+      "speaker_auc": 0.75
+    },
+    "P_pooled_to_array": {
+      "n_utts": 9171,
+      "utt_accuracy": 0.5462872096826955,
+      "utt_balanced_accuracy": 0.5444313410412482,
+      "utt_auc": 0.5410501945077792,
+      "speaker_correct": 10,
+      "n_speakers": 15,
+      "speaker_auc": 0.6964285714285714
+    },
+    "D_dys_head_ctl_array": {
+      "n_utts": 8955,
+      "utt_accuracy": 0.977107761027359,
+      "utt_balanced_accuracy": 0.9808737682214,
+      "utt_auc": 0.999373646561415,
+      "speaker_correct": 15,
+      "n_speakers": 15,
+      "speaker_auc": 1.0
+    },
+    "D_dys_array_ctl_head": {
+      "n_utts": 8161,
+      "utt_accuracy": 0.9906874157578728,
+      "utt_balanced_accuracy": 0.9913079533806555,
+      "utt_auc": 0.9996917502795635,
+      "speaker_correct": 15,
+      "n_speakers": 15,
+      "speaker_auc": 1.0
+    },
+    "C_channel_probe": {
+      "n_utts": 17116,
+      "utt_accuracy": 0.9967282075251227,
+      "utt_balanced_accuracy": 0.9966608564949341,
+      "utt_auc": 0.9999697791469113
+    }
+  }
+}

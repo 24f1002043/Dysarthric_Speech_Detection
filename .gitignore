@@ -12,3 +12,11 @@ results/*.zip
 __pycache__/
 *.pyc
 results/shap_values.npz
+
+# Per-utterance predictions of the paper experiments (25 MB): regenerate with src/paper_experiments.py
+results/paper/preds_*.csv
+
+# LaTeX build files
+paper/*.aux
+paper/*.log
+paper/*.out

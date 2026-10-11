@@ -1,0 +1,82 @@
+{
+  "wavlm_logreg": {
+    "A_head_to_head": {
+      "n_utts": 7945,
+      "utt_accuracy": 0.8219005663939585,
+      "utt_balanced_accuracy": 0.8113054771147601,
+      "utt_auc": 0.8817335544371773,
+      "speaker_correct": 14,
+      "n_speakers": 15,
+      "speaker_auc": 0.9821428571428572
+    },
+    "A_array_to_array": {
+      "n_utts": 9173,
+      "utt_accuracy": 0.6941022566226971,
+      "utt_balanced_accuracy": 0.6675730809539224,
+      "utt_auc": 0.7284062246608358,
+      "speaker_correct": 10,
+      "n_speakers": 15,
+      "speaker_auc": 0.8392857142857143
+    },
+    "B_head_to_array": {
+      "n_utts": 9173,
+      "utt_accuracy": 0.7198299356808023,
+      "utt_balanced_accuracy": 0.667711748611988,
+      "utt_auc": 0.7024583062247676,
+      "speaker_correct": 12,
+      "n_speakers": 15,
+      "speaker_auc": 0.8035714285714286
+    },
+    "B_array_to_head": {
+      "n_utts": 7945,
+      "utt_accuracy": 0.6607929515418502,
+      "utt_balanced_accuracy": 0.6855864900701669,
+      "utt_auc": 0.783241939243838,
+      "speaker_correct": 11,
+      "n_speakers": 15,
+      "speaker_auc": 0.875
+    },
+    "P_pooled_to_head": {
+      "n_utts": 7945,
+      "utt_accuracy": 0.8010069225928257,
+      "utt_balanced_accuracy": 0.7897537767314107,
+      "utt_auc": 0.8587167035356775,
+      "speaker_correct": 13,
+      "n_speakers": 15,
+      "speaker_auc": 0.9642857142857143
+    },
+    "P_pooled_to_array": {
+      "n_utts": 9173,
+      "utt_accuracy": 0.7021694102256623,
+      "utt_balanced_accuracy": 0.679401042250903,
+      "utt_auc": 0.7436350690293585,
+      "speaker_correct": 10,
+      "n_speakers": 15,
+      "speaker_auc": 0.8392857142857143
+    },
+    "D_dys_head_ctl_array": {
+      "n_utts": 8956,
+      "utt_accuracy": 0.9695176418043769,
+      "utt_balanced_accuracy": 0.9620040350470556,
+      "utt_auc": 0.994201804319993,
+      "speaker_correct": 15,
+      "n_speakers": 15,
+      "speaker_auc": 1.0
+    },
+    "D_dys_array_ctl_head": {
+      "n_utts": 8162,
+      "utt_accuracy": 0.9797843665768194,
+      "utt_balanced_accuracy": 0.978546155640925,
+      "utt_auc": 0.9974944158368435,
+      "speaker_correct": 15,
+      "n_speakers": 15,
+      "speaker_auc": 1.0
+    },
+    "C_channel_probe": {
+      "n_utts": 17118,
+      "utt_accuracy": 0.9834092767846712,
+      "utt_balanced_accuracy": 0.9830791339977224,
+      "utt_auc": 0.9977425060015176
+    }
+  }
+}
