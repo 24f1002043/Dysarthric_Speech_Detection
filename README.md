@@ -361,3 +361,7 @@ data must cite at least one of the three.
 **This is a research prototype, not a medical device.** It is trained on 15
 speakers reading prompted material in a lab, and nothing here is validated for
 clinical use or for any decision about a real person's care.
+
+## Licence
+
+The code in this repository is released under the MIT License (see [LICENSE](LICENSE)). The datasets keep their own terms, described above, and the paper PDF is not covered by this licence.
