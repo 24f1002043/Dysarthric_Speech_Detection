@@ -1,0 +1,150 @@
+{
+  "egemaps_xgb": [
+    {
+      "k": 1,
+      "speaker_auc": 0.7887410714285715,
+      "speaker_acc": 0.7510666666666665,
+      "acc_control": 0.7442142857142857,
+      "acc_mild": 0.70275,
+      "acc_moderate": 0.44125000000000003,
+      "acc_severe": 0.942125
+    },
+    {
+      "k": 2,
+      "speaker_auc": 0.8228839285714286,
+      "speaker_acc": 0.7778333333333334,
+      "acc_control": 0.7665714285714286,
+      "acc_mild": 0.72925,
+      "acc_moderate": 0.44875,
+      "acc_severe": 0.986375
+    },
+    {
+      "k": 3,
+      "speaker_auc": 0.8334285714285714,
+      "speaker_acc": 0.7918333333333333,
+      "acc_control": 0.7896428571428571,
+      "acc_mild": 0.759,
+      "acc_moderate": 0.43574999999999997,
+      "acc_severe": 0.9901250000000001
+    },
+    {
+      "k": 5,
+      "speaker_auc": 0.8409285714285714,
+      "speaker_acc": 0.8049999999999999,
+      "acc_control": 0.8081428571428572,
+      "acc_mild": 0.79325,
+      "acc_moderate": 0.41925,
+      "acc_severe": 0.99825
+    },
+    {
+      "k": 10,
+      "speaker_auc": 0.8470892857142857,
+      "speaker_acc": 0.8189666666666666,
+      "acc_control": 0.8282857142857143,
+      "acc_mild": 0.81225,
+      "acc_moderate": 0.43125,
+      "acc_severe": 0.9998750000000001
+    },
+    {
+      "k": 20,
+      "speaker_auc": 0.8487321428571428,
+      "speaker_acc": 0.8325,
+      "acc_control": 0.8452857142857143,
+      "acc_mild": 0.82975,
+      "acc_moderate": 0.45549999999999996,
+      "acc_severe": 1.0
+    },
+    {
+      "k": 50,
+      "speaker_auc": 0.8470446428571428,
+      "speaker_acc": 0.8471666666666666,
+      "acc_control": 0.8560714285714285,
+      "acc_mild": 0.8685,
+      "acc_moderate": 0.489,
+      "acc_severe": 1.0
+    },
+    {
+      "k": 100,
+      "speaker_auc": 0.8446785714285713,
+      "speaker_acc": 0.8556,
+      "acc_control": 0.8571428571428571,
+      "acc_mild": 0.91725,
+      "acc_moderate": 0.49975,
+      "acc_severe": 1.0
+    }
+  ],
+  "wavlm_logreg": [
+    {
+      "k": 1,
+      "speaker_auc": 0.9032321428571429,
+      "speaker_acc": 0.8333999999999999,
+      "acc_control": 0.8588571428571428,
+      "acc_mild": 0.5742499999999999,
+      "acc_moderate": 0.694,
+      "acc_severe": 0.988125
+    },
+    {
+      "k": 2,
+      "speaker_auc": 0.9342767857142856,
+      "speaker_acc": 0.8636666666666667,
+      "acc_control": 0.9109285714285714,
+      "acc_mild": 0.61075,
+      "acc_moderate": 0.6815,
+      "acc_severe": 0.9984999999999999
+    },
+    {
+      "k": 3,
+      "speaker_auc": 0.9461785714285714,
+      "speaker_acc": 0.8690333333333334,
+      "acc_control": 0.9263571428571428,
+      "acc_mild": 0.6125,
+      "acc_moderate": 0.66625,
+      "acc_severe": 0.998375
+    },
+    {
+      "k": 5,
+      "speaker_auc": 0.9641071428571428,
+      "speaker_acc": 0.8783333333333334,
+      "acc_control": 0.9436428571428571,
+      "acc_mild": 0.63625,
+      "acc_moderate": 0.6487499999999999,
+      "acc_severe": 0.9998750000000001
+    },
+    {
+      "k": 10,
+      "speaker_auc": 0.9774464285714286,
+      "speaker_acc": 0.8886666666666666,
+      "acc_control": 0.959,
+      "acc_mild": 0.6935,
+      "acc_moderate": 0.615,
+      "acc_severe": 1.0
+    },
+    {
+      "k": 20,
+      "speaker_auc": 0.9832500000000001,
+      "speaker_acc": 0.8976000000000001,
+      "acc_control": 0.9696428571428573,
+      "acc_mild": 0.77075,
+      "acc_moderate": 0.5675,
+      "acc_severe": 1.0
+    },
+    {
+      "k": 50,
+      "speaker_auc": 0.9863392857142859,
+      "speaker_acc": 0.9144000000000001,
+      "acc_control": 0.9846428571428572,
+      "acc_mild": 0.89225,
+      "acc_moderate": 0.5195,
+      "acc_severe": 1.0
+    },
+    {
+      "k": 100,
+      "speaker_auc": 0.9867410714285717,
+      "speaker_acc": 0.9280333333333334,
+      "acc_control": 0.9946428571428572,
+      "acc_mild": 0.97575,
+      "acc_moderate": 0.50325,
+      "acc_severe": 1.0
+    }
+  ]
+}
