@@ -1,5 +1,19 @@
 # Dysarthric Speech Detection on TORGO
 
+**Paper:** [*What Is a Dysarthria Detector Listening To? Microphone, Speaker and Noise-Floor Shortcuts on TORGO* (PDF)](paper/main.pdf)
+— Abhiram Radhakrishnan (first author), Gengaraj P, Praveen V. Submitted to the 2nd Workshop on AI in Big Data
+Analytics for Healthcare, IEEE BigData 2026; under review.
+
+**Headline:** with speaker and microphone controlled, frozen WavLM reaches **0.883 AUC** (14/15 speakers); letting the
+microphone align with the diagnosis yields a meaningless **0.999**, and cross-microphone transfer collapses to **0.135**.
+
+**Reproduce in one command** (CPU only; downloads TORGO, extracts features, runs every experiment):
+
+```bash
+python -m venv .venv && .venv/Scripts/pip install -r requirements.txt torch transformers && for S in F FC M MC; do bash scripts/fetch_torgo.sh data/TORGO $S; done && bash scripts/run_all.sh
+```
+
+(On Linux/macOS use `.venv/bin/pip` and `bash scripts/run_all.sh .venv/bin/python`.)
 
 Binary detection (dysarthric vs. control) on the University of Toronto **TORGO**
 corpus, evaluated **leave-one-speaker-out** across all 15 speakers, with two
