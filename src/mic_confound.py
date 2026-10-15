@@ -66,7 +66,7 @@ def channel_probe(df: pd.DataFrame) -> dict:
 
 
 def confounded(df: pd.DataFrame, dys_mic: str, ctl_mic: str) -> dict:
-    """Deliberately align microphone with group — the mistake to avoid."""
+    """Deliberately align microphone with group, the mistake to avoid."""
     sub = df[((df.label == 1) & (df.mic == dys_mic)) |
              ((df.label == 0) & (df.mic == ctl_mic))].reset_index(drop=True)
     preds, folds = run_loso(sub, kind="xgb", verbose=False)

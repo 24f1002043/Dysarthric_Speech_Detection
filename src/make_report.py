@@ -1,4 +1,4 @@
-"""Render RESULTS.md from whatever is in results/ — no numbers typed by hand."""
+"""Render RESULTS.md from whatever is in results/, no numbers typed by hand."""
 from __future__ import annotations
 
 import argparse
@@ -67,7 +67,7 @@ def main() -> None:
         L += ["## Model comparison", "",
               md_table(pd.read_csv(cmp_path)), "",
               "`speaker_correct` counts speakers classified correctly by the mean "
-              "probability over all their utterances — the number that matters for a "
+              "probability over all their utterances, the number that matters for a "
               "screening tool, which sees a person, not an utterance.", ""]
 
     # --- severity ---
@@ -98,7 +98,7 @@ def main() -> None:
               "`C_channel_probe` shows the microphone is almost perfectly recoverable "
               "from the same eGeMAPS features the detector uses. `D_confounded_*` "
               "aligns microphone with group on purpose and produces the highest "
-              "accuracy in this repository — a microphone detector, not a dysarthria "
+              "accuracy in this repository, a microphone detector, not a dysarthria "
               "detector. `B_mismatch_*` shows how little of the matched model "
               "transfers when only the channel changes.", "",
               "This is why every headline result here fixes the microphone to the "
@@ -119,7 +119,7 @@ def main() -> None:
     for f in sorted(R.glob("folds_*.csv")):
         name = f.stem.replace("folds_", "")
         d = pd.read_csv(f).sort_values(["label", "severity", "speaker"])
-        L += [f"## Per-speaker detail — `{name}`", "",
+        L += [f"## Per-speaker detail: `{name}`", "",
               md_table(d[["speaker", "group", "severity", "n_utts",
                           "utt_acc", "mean_prob", "spk_correct"]].round(3)), ""]
     if (R / "per_speaker_accuracy.png").exists():

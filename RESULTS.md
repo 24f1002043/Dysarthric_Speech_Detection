@@ -33,7 +33,7 @@ An utterance is dropped only when its prompt is explicitly an instruction rather
 | wavlm_logreg_sharedprompt | logreg  | head  |         1536 |     6407 |         0.8052 |                  0.802  |   0.7761 |    0.8747 |            0.7775 |            0.8265 | 14/15             |
 | wavlm_mlp                 | mlp     | head  |         1536 |     7945 |         0.8033 |                  0.798  |   0.7396 |    0.8701 |            0.7795 |            0.8166 | 13/15             |
 
-`speaker_correct` counts speakers classified correctly by the mean probability over all their utterances — the number that matters for a screening tool, which sees a person, not an utterance.
+`speaker_correct` counts speakers classified correctly by the mean probability over all their utterances, the number that matters for a screening tool, which sees a person, not an utterance.
 
 ## Accuracy by severity
 
@@ -88,7 +88,7 @@ Mild dysarthria is the hard case, and it is the case that matters most for early
 | D_confounded_dys_head    |         0.9678 |    0.9991 |             1      |
 | D_confounded_dys_array   |         0.9925 |    0.9998 |             1      |
 
-**How to read this.** `A_matched` is the honest protocol. `C_channel_probe` shows the microphone is almost perfectly recoverable from the same eGeMAPS features the detector uses. `D_confounded_*` aligns microphone with group on purpose and produces the highest accuracy in this repository — a microphone detector, not a dysarthria detector. `B_mismatch_*` shows how little of the matched model transfers when only the channel changes.
+**How to read this.** `A_matched` is the honest protocol. `C_channel_probe` shows the microphone is almost perfectly recoverable from the same eGeMAPS features the detector uses. `D_confounded_*` aligns microphone with group on purpose and produces the highest accuracy in this repository, a microphone detector, not a dysarthria detector. `B_mismatch_*` shows how little of the matched model transfers when only the channel changes.
 
 This is why every headline result here fixes the microphone to the head-mounted channel for **both** groups.
 
@@ -116,7 +116,7 @@ This is why every headline result here fixes the microphone to the head-mounted 
 
 These are computed only on held-out speakers, so they describe out-of-sample behaviour rather than what the model memorised.
 
-## Per-speaker detail — `egemaps_xgb`
+## Per-speaker detail: `egemaps_xgb`
 
 | speaker   | group      | severity   |   n_utts |   utt_acc |   mean_prob |   spk_correct |
 |:----------|:-----------|:-----------|---------:|----------:|------------:|--------------:|
@@ -136,7 +136,7 @@ These are computed only on held-out speakers, so they describe out-of-sample beh
 | M02       | dysarthric | severe     |      391 |     0.841 |       0.836 |             1 |
 | M04       | dysarthric | severe     |      282 |     0.979 |       0.953 |             1 |
 
-## Per-speaker detail — `egemaps_xgb_array`
+## Per-speaker detail: `egemaps_xgb_array`
 
 | speaker   | group      | severity   |   n_utts |   utt_acc |   mean_prob |   spk_correct |
 |:----------|:-----------|:-----------|---------:|----------:|------------:|--------------:|
@@ -156,7 +156,7 @@ These are computed only on held-out speakers, so they describe out-of-sample beh
 | M02       | dysarthric | severe     |      387 |     0.982 |       0.958 |             1 |
 | M04       | dysarthric | severe     |      396 |     0.98  |       0.968 |             1 |
 
-## Per-speaker detail — `egemaps_xgb_nolevel`
+## Per-speaker detail: `egemaps_xgb_nolevel`
 
 | speaker   | group      | severity   |   n_utts |   utt_acc |   mean_prob |   spk_correct |
 |:----------|:-----------|:-----------|---------:|----------:|------------:|--------------:|
@@ -176,7 +176,7 @@ These are computed only on held-out speakers, so they describe out-of-sample beh
 | M02       | dysarthric | severe     |      391 |     0.867 |       0.826 |             1 |
 | M04       | dysarthric | severe     |      282 |     0.879 |       0.779 |             1 |
 
-## Per-speaker detail — `egemaps_xgb_sharedprompt`
+## Per-speaker detail: `egemaps_xgb_sharedprompt`
 
 | speaker   | group      | severity   |   n_utts |   utt_acc |   mean_prob |   spk_correct |
 |:----------|:-----------|:-----------|---------:|----------:|------------:|--------------:|
@@ -196,7 +196,7 @@ These are computed only on held-out speakers, so they describe out-of-sample beh
 | M02       | dysarthric | severe     |      382 |     0.927 |       0.891 |             1 |
 | M04       | dysarthric | severe     |      279 |     0.993 |       0.965 |             1 |
 
-## Per-speaker detail — `wavlm_logreg`
+## Per-speaker detail: `wavlm_logreg`
 
 | speaker   | group      | severity   |   n_utts |   utt_acc |   mean_prob |   spk_correct |
 |:----------|:-----------|:-----------|---------:|----------:|------------:|--------------:|
@@ -216,7 +216,7 @@ These are computed only on held-out speakers, so they describe out-of-sample beh
 | M02       | dysarthric | severe     |      391 |     0.997 |       0.996 |             1 |
 | M04       | dysarthric | severe     |      282 |     0.993 |       0.989 |             1 |
 
-## Per-speaker detail — `wavlm_logreg_array`
+## Per-speaker detail: `wavlm_logreg_array`
 
 | speaker   | group      | severity   |   n_utts |   utt_acc |   mean_prob |   spk_correct |
 |:----------|:-----------|:-----------|---------:|----------:|------------:|--------------:|
@@ -236,7 +236,7 @@ These are computed only on held-out speakers, so they describe out-of-sample beh
 | M02       | dysarthric | severe     |      387 |     0.879 |       0.871 |             1 |
 | M04       | dysarthric | severe     |      397 |     0.927 |       0.914 |             1 |
 
-## Per-speaker detail — `wavlm_logreg_sharedprompt`
+## Per-speaker detail: `wavlm_logreg_sharedprompt`
 
 | speaker   | group      | severity   |   n_utts |   utt_acc |   mean_prob |   spk_correct |
 |:----------|:-----------|:-----------|---------:|----------:|------------:|--------------:|
@@ -256,7 +256,7 @@ These are computed only on held-out speakers, so they describe out-of-sample beh
 | M02       | dysarthric | severe     |      382 |     0.997 |       0.997 |             1 |
 | M04       | dysarthric | severe     |      279 |     0.993 |       0.988 |             1 |
 
-## Per-speaker detail — `wavlm_mlp`
+## Per-speaker detail: `wavlm_mlp`
 
 | speaker   | group      | severity   |   n_utts |   utt_acc |   mean_prob |   spk_correct |
 |:----------|:-----------|:-----------|---------:|----------:|------------:|--------------:|

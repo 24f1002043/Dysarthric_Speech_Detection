@@ -131,7 +131,7 @@ def main() -> None:
     plt.figure(figsize=(11, 7))
     shap.summary_plot(SV, XT, feature_names=disp, plot_type="bar",
                       max_display=a.top, show=False)
-    plt.title("Mean |SHAP| — eGeMAPS + XGBoost", fontsize=11)
+    plt.title("Mean |SHAP|: eGeMAPS + XGBoost", fontsize=11)
     plt.tight_layout()
     plt.savefig(out / "shap_bar.png", dpi=180)
     plt.close()

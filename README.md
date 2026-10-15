@@ -1,7 +1,7 @@
 # Dysarthric Speech Detection on TORGO
 
 **Paper:** [*What Is a Dysarthria Detector Listening To? Microphone, Speaker and Noise-Floor Shortcuts on TORGO* (PDF)](paper/main.pdf)
-— Abhiram Radhakrishnan (first author), Gengaraj P, Praveen V. Submitted to the 2nd Workshop on AI in Big Data
+by Abhiram Radhakrishnan (first author), Gengaraj P, Praveen V. Submitted to the 2nd Workshop on AI in Big Data
 Analytics for Healthcare, IEEE BigData 2026; under review.
 
 **Headline:** with speaker and microphone controlled, frozen WavLM reaches **0.883 AUC** (14/15 speakers); letting the
@@ -27,7 +27,7 @@ published TORGO numbers look better than they are.
 
 Leave-one-speaker-out over all 15 speakers, head-mounted microphone for both
 groups. `speaker_correct` is how many of the 15 people were classified
-correctly from the mean probability across their utterances — the number a
+correctly from the mean probability across their utterances, the number a
 screening tool actually cares about.
 
 | Model | Features | Utt. accuracy | AUC | Speakers |
@@ -44,7 +44,7 @@ screening tool actually cares about.
 Four things are worth noticing:
 
 1. **Frozen WavLM beats hand-designed acoustics by a wide margin** (0.883 vs
-   0.765 AUC) without any fine-tuning — only a linear model on top.
+   0.765 AUC) without any fine-tuning, only a linear model on top.
 2. **The controls hold.** Restricting to the prompts both groups spoke barely
    moves either model, so neither is reading the script instead of the speech.
 3. **The microphone matters more than the model.** Moving from the
@@ -67,7 +67,7 @@ number. Three decisions carry most of the scientific weight here:
 
 1. **Leave-one-speaker-out (LOSO).** 15 speakers is a small pool. Any split
    that puts the same speaker in train and test measures speaker recognition,
-   not disorder detection. Every fold here holds out one entire speaker — not
+   not disorder detection. Every fold here holds out one entire speaker, not
    one utterance of theirs is seen, and even the feature scaler is fit on the
    training speakers only.
 2. **One microphone for both groups.** TORGO records every session with a
@@ -93,25 +93,25 @@ repo, because it shows what the careful protocol is protecting against:
 
 | Experiment | What it asks |
 |---|---|
-| **A — matched** | train head-mic → test head-mic (the protocol used everywhere else here) |
-| **B — mismatched** | train head-mic → test array-mic: how much of the decision was channel, not disorder? |
-| **C — channel probe** | can the *same eGeMAPS features* identify which microphone was used? |
-| **D — confounded** | deliberately give dysarthric speakers one mic and controls the other |
+| **A: matched** | train head-mic → test head-mic (the protocol used everywhere else here) |
+| **B: mismatched** | train head-mic → test array-mic: how much of the decision was channel, not disorder? |
+| **C: channel probe** | can the *same eGeMAPS features* identify which microphone was used? |
+| **D: confounded** | deliberately give dysarthric speakers one mic and controls the other |
 
 What this run actually found (utterance-level AUC, eGeMAPS + XGBoost, LOSO):
 
 | Experiment | Accuracy | AUC |
 |---|---:|---:|
-| A — matched, head mic (the honest protocol) | 0.720 | **0.765** |
-| A' — matched, array mic | 0.556 | 0.590 |
-| B — train head, test array | 0.233 | **0.135** |
-| B' — train array, test head | 0.253 | 0.283 |
-| C — predict the *microphone* from the same features | 0.995 | **1.000** |
-| D — confounded: dysarthric=head, control=array | 0.968 | **0.999** |
-| D' — confounded, swapped | 0.993 | 1.000 |
+| A: matched, head mic (the honest protocol) | 0.720 | **0.765** |
+| A': matched, array mic | 0.556 | 0.590 |
+| B: train head, test array | 0.233 | **0.135** |
+| B': train array, test head | 0.253 | 0.283 |
+| C: predict the *microphone* from the same features | 0.995 | **1.000** |
+| D: confounded: dysarthric=head, control=array | 0.968 | **0.999** |
+| D': confounded, swapped | 0.993 | 1.000 |
 
 Read row **D** against row **A**. The confounded setup scores an AUC of 0.999
-and the honest one scores 0.765 — a "better" model that has learned nothing
+and the honest one scores 0.765, a "better" model that has learned nothing
 about speech. Row **C** shows why it is so easy: the microphone is perfectly
 recoverable from the very features the detector uses. Row **B** is the sharpest
 part: a model trained on one microphone and tested on the other lands at AUC
@@ -119,7 +119,7 @@ part: a model trained on one microphone and tested on the other lands at AUC
 changes. Whatever it learned, most of it was not dysarthria.
 
 A practical wrinkle worth knowing: every speaker has both microphones, but the
-**amounts are very uneven** — some speakers have far more array-mic than
+**amounts are very uneven**, some speakers have far more array-mic than
 head-mic utterances, and one has the reverse. So "use the same microphone" is
 not free: it changes how much data each speaker contributes. The manifest
 records the microphone for every utterance, the headline protocol fixes the
@@ -136,7 +136,7 @@ replication so the choice is visible rather than silent.
 | **WavLM (frozen) + linear / MLP** | mean+std pooled hidden states from `microsoft/wavlm-base-plus` | logistic regression / small MLP | learned representations, no speaker memorisation |
 
 Both are scored with the same LOSO loop, and utterances are weighted so that
-each speaker — and then each class — contributes equally. Without that, a few
+each speaker, and then each class, contributes equally. Without that, a few
 talkative speakers would define the decision boundary.
 
 ---
@@ -147,17 +147,17 @@ talkative speakers would define the decision boundary.
 utterances only**, so the explanation describes genuine out-of-sample
 behaviour. Outputs land in `results/`:
 
-- `shap_summary.png`, `shap_bar.png` — which acoustic parameters drive detection
-- `shap_feature_importance.csv` — ranked, with plain-English feature names
-- `shap_by_severity.csv` — how the explanation shifts from severe to mild cases
+- `shap_summary.png`, `shap_bar.png`: which acoustic parameters drive detection
+- `shap_feature_importance.csv`: ranked, with plain-English feature names
+- `shap_by_severity.csv`: how the explanation shifts from severe to mild cases
 
 This is the speech analogue of a Grad-CAM saliency map: it turns a yes/no
 classifier into a claim a clinician can argue with.
 
 ### What SHAP found, and the awkward question it raised
 
-The ranking is dominated by **vocal loudness** — loudness in quiet passages is
-roughly three times more influential than the next feature — followed by
+The ranking is dominated by **vocal loudness**, loudness in quiet passages is
+roughly three times more influential than the next feature, followed by
 **H1–H2** (a glottal-source measure related to breathiness), **pitch
 variation**, **pause-length variation** and **syllable rate**. Those are
 recognisable dysarthria correlates: reduced vocal intensity, disordered
@@ -173,7 +173,7 @@ picture like that.
 But "loudness" is also the feature most easily contaminated by recording gain
 and microphone distance, so it is worth asking whether the detector is really
 just a loudness meter. The repo answers that directly rather than hoping nobody
-asks — `--no-level-features` drops every absolute loudness and sound-level
+asks: `--no-level-features` drops every absolute loudness and sound-level
 statistic (keeping scale-invariant ones such as the coefficient of variation):
 
 | Model | AUC | Speakers correct |
@@ -194,8 +194,8 @@ correspondingly lower expected accuracy.
 
 TORGO's dysarthric speakers carry Frenchay Dysarthria Assessment intelligibility
 ratings, grouped here as **mild / moderate / severe**. The grouping is the one
-conventional in the TORGO literature and lives in one place — the `SEVERITY`
-dict in `src/torgo_manifest.py` — so it can be checked against the corpus
+conventional in the TORGO literature and lives in one place, the `SEVERITY`
+dict in `src/torgo_manifest.py`, so it can be checked against the corpus
 documentation or changed without touching the pipeline.
 
 `src/analyze.py` reports accuracy per severity band. For the better model
@@ -209,7 +209,7 @@ documentation or changed without touching the pipeline.
 | control | 7 | 0.858 | 7/7 |
 
 Severe dysarthria is detected essentially perfectly. **Mild dysarthria is the
-hard case** — barely above chance at the utterance level, and only recoverable
+hard case**, barely above chance at the utterance level, and only recoverable
 at the speaker level by averaging many utterances together. That is the
 clinically awkward shape: the closer speech is to typical, the worse the
 detector does, and mild cases are exactly what early screening exists to catch.
@@ -217,7 +217,7 @@ A screening tool built on this would need to listen to a whole session, not a
 single word, before saying anything about a mild case.
 
 Mild is the worst band in **all four** WavLM runs (head, array, shared-prompt,
-MLP), so this is not an artefact of one configuration. eGeMAPS disagrees — it
+MLP), so this is not an artefact of one configuration. eGeMAPS disagrees; it
 finds *moderate* hardest, because its single largest error is one moderate
 speaker (F03). That disagreement is itself informative: with two speakers per
 band, band-level numbers track individuals, and the per-speaker table in
@@ -236,7 +236,7 @@ estimate of a population.
 ### A note on speaker counts
 
 The released corpus contains **8 dysarthric speakers** (F01, F03, F04, M01–M05)
-and **7 controls** (FC01–FC03, MC01–MC04) — 15 in total, hence 15 LOSO folds.
+and **7 controls** (FC01–FC03, MC01–MC04), 15 in total, hence 15 LOSO folds.
 Note that F02 is absent from the release.
 
 ---
@@ -246,7 +246,7 @@ Note that F02 is absent from the release.
 **"Why is the accuracy only ~72% when papers report the high 90s?"**
 Because the folds are speaker-disjoint. `tests/test_loso.py` asserts that no
 held-out speaker appears in its own training set, and that a random
-utterance-level split scores *higher* than LOSO — which is the direction it must
+utterance-level split scores *higher* than LOSO, which is the direction it must
 go. Much of the headroom in published TORGO numbers comes from splits that let
 a speaker appear on both sides, or from an uncontrolled recording channel; the
 microphone table above shows what that is worth (AUC 0.999, and meaningless).
@@ -254,7 +254,7 @@ microphone table above shows what that is worth (AUC 0.999, and meaningless).
 **"TORGO has two microphones. Did you control for that?"**
 Yes, and it is measured rather than asserted. The same features can identify
 the microphone almost perfectly, and deliberately aligning microphone with
-group yields the highest accuracy in the repo — a result included precisely
+group yields the highest accuracy in the repo, a result included precisely
 because it is worthless. Every real result fixes one microphone for both groups
 and is replicated on the other channel.
 
@@ -266,7 +266,7 @@ actually spoke.
 SHAP over held-out utterances, with readable parameter names: vocal loudness
 first, then H1–H2 (breathiness), pitch variation, pause-length variation and
 syllable rate. And because loudness dominates, the repo also reports what
-happens when every absolute level feature is removed — AUC falls from 0.765 to
+happens when every absolute level feature is removed: AUC falls from 0.765 to
 0.589, which is stated rather than hidden.
 
 **"Where does it fail?"**
@@ -362,7 +362,7 @@ on, and the tool reports *why* it decided rather than just deciding.
 
 TORGO is distributed by the University of Toronto and is **free for academic
 (non-profit) use**, on the condition that work using it cites the corpus. The
-audio is *not* redistributed in this repository — `scripts/fetch_torgo.sh`
+audio is *not* redistributed in this repository; `scripts/fetch_torgo.sh`
 downloads it from the original source, and `data/` is git-ignored.
 
 > Rudzicz, F., Namasivayam, A. K., & Wolff, T. (2012). The TORGO database of
