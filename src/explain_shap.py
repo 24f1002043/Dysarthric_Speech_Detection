@@ -1,9 +1,3 @@
-"""SHAP explanation of the eGeMAPS + XGBoost detector.
-
-The model is refit inside a leave-one-speaker-out loop and SHAP values are
-computed only for held-out utterances, so the explanation describes genuine
-out-of-sample behaviour rather than what the model memorised.
-"""
 from __future__ import annotations
 
 import argparse
@@ -18,7 +12,6 @@ import shap
 
 from loso import _fit, make_model, sample_weights, split_meta_features
 
-# Readable names for the eGeMAPS parameters that dominate the explanation.
 FRIENDLY = {
     "F0semitoneFrom27.5Hz_sma3nz_amean": "Pitch (mean)",
     "F0semitoneFrom27.5Hz_sma3nz_stddevNorm": "Pitch variation",
@@ -114,7 +107,6 @@ def main() -> None:
     print("\n--- top features driving dysarthria detection ---")
     print(imp.head(a.top).to_string(index=False))
 
-    # Keep the raw values so the figures can be restyled without refitting.
     np.savez_compressed(out / "shap_values.npz", shap_values=SV, features=XT,
                         feature_names=np.array(names),
                         speaker=M["speaker"].to_numpy(),
@@ -136,7 +128,6 @@ def main() -> None:
     plt.savefig(out / "shap_bar.png", dpi=180)
     plt.close()
 
-    # How the explanation shifts as the disorder gets milder.
     sev = (pd.DataFrame(np.abs(SV), columns=names)
            .assign(severity=M["severity"].values)
            .groupby("severity").mean().T)

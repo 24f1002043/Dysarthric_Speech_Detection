@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
-# Full pipeline. Usage: bash scripts/run_all.sh [python_executable]
-#
-# Every experiment fixes ONE microphone for BOTH groups.
-#   primary     : head-mounted mic  (close-talking, available for all 15 speakers)
-#   replication : array mic         (same protocol, different channel)
-# Mixing the two is exactly what src/mic_confound.py shows you must not do.
 set -euo pipefail
 PY="${1:-.venv/Scripts/python.exe}"
 

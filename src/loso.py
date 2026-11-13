@@ -1,10 +1,3 @@
-"""Leave-one-speaker-out evaluation shared by every model in this project.
-
-With only 15 speakers, any split that lets a speaker appear in both train and
-test turns the task into speaker identification. Every fold here holds out one
-entire speaker; nothing about that speaker (not one utterance, not the scaler
-statistics) is visible during training.
-"""
 from __future__ import annotations
 
 import numpy as np
@@ -27,11 +20,6 @@ def split_meta_features(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
 
 
 def sample_weights(meta: pd.DataFrame) -> np.ndarray:
-    """Equalise the influence of each speaker, then of each class.
-
-    Utterance counts per speaker range from a few hundred to >1500. Without
-    this, a handful of talkative speakers would define the decision boundary.
-    """
     w = np.ones(len(meta), dtype=float)
     for spk, idx in meta.groupby("speaker").groups.items():
         w[list(idx)] = 1.0 / len(idx)
@@ -72,17 +60,15 @@ def _fit(model, X, y, w, kind, seed: int = 0):
     elif kind == "logreg":
         model.fit(X, y, clf__sample_weight=w)
     else:
-        # MLPClassifier takes no sample_weight, so draw a training set whose
-        # composition matches the weights instead of ignoring them.
         rng = np.random.default_rng(seed)
         idx = rng.choice(len(y), size=len(y), replace=True, p=w / w.sum())
         model.fit(X[idx], y[idx])
     return model
 
 
+# leave one speaker out so the model never sees the test speaker during training
 def run_loso(df: pd.DataFrame, kind: str = "xgb", seed: int = 0,
              verbose: bool = True) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Return (per-utterance predictions, per-fold metrics)."""
     meta, feats = split_meta_features(df)
     X, y = feats.to_numpy(dtype=np.float32), meta["label"].to_numpy()
     speakers = sorted(meta["speaker"].unique())
@@ -102,8 +88,6 @@ def run_loso(df: pd.DataFrame, kind: str = "xgb", seed: int = 0,
         block["correct"] = (block["pred"] == block["label"]).astype(int)
         preds.append(block)
 
-        # A held-out fold contains exactly one class, so utterance AUC is
-        # undefined here; it is computed once over the pooled predictions.
         fold_rows.append({
             "speaker": spk,
             "group": block["group"].iloc[0],

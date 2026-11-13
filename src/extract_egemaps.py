@@ -1,10 +1,3 @@
-"""Extract eGeMAPSv02 functionals (88 features/utterance) with openSMILE.
-
-eGeMAPS is the minimalistic parameter set designed for clinical and affective
-voice research: pitch, loudness, jitter, shimmer, harmonicity, formants,
-spectral shape and timing. Every feature has a name a speech-language
-pathologist can argue with, which is what makes the SHAP step meaningful.
-"""
 from __future__ import annotations
 
 import argparse
@@ -34,7 +27,6 @@ def _init_worker() -> None:
 
 
 def _process(path: str) -> np.ndarray | None:
-    """Return the 88-dim functional vector, or None if the file is unusable."""
     global _SMILE
     if _SMILE is None:
         _SMILE = build_smile()

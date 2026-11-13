@@ -1,4 +1,3 @@
-"""LOSO on the quiet-frame descriptors written by nonspeech_probe.py."""
 from __future__ import annotations
 
 import json
@@ -30,7 +29,6 @@ def main() -> None:
                       f"auc={res[key]['utt_auc']:.3f} "
                       f"spk={res[key]['speaker_correct']}/15 "
                       f"spk_auc={res[key]['speaker_auc']:.3f}", flush=True)
-    # microphone from the quiet frames alone
     cols = META + [c for c in df.columns if c.startswith("quiet_")]
     p = masked_loso(df[cols], "logreg", label=(df.mic == "array").astype(int).to_numpy(), n_jobs=4)
     res["channel_probe__quiet__logreg"] = {k: v for k, v in score(p).items() if "utt" in k}

@@ -1,8 +1,3 @@
-"""Generate a self-contained Colab notebook from the scripts in src/.
-
-The notebook embeds the source files verbatim, so the GPU run on Colab is
-exactly the pipeline in this repository rather than a copy that drifts.
-"""
 from __future__ import annotations
 
 import base64
@@ -30,7 +25,6 @@ def code(text: str) -> dict:
 
 
 def payload() -> str:
-    """zlib+base64 of all src files, so the unpack cell stays a single line."""
     blob = {f: (SRC / f).read_text(encoding="utf-8") for f in FILES}
     blob["fetch_torgo.sh"] = (ROOT / "scripts" / "fetch_torgo.sh").read_text(encoding="utf-8")
     raw = json.dumps(blob).encode("utf-8")

@@ -1,9 +1,3 @@
-"""Uncertainty and subgroup statistics computed from stored LOSO predictions.
-
-  bootstrap   speaker-level (cluster) bootstrap CIs, and the paired WavLM - eGeMAPS gap
-  listening   how speaker-level decisions improve with the number of utterances heard
-  subgroup    sex and severity breakdown
-"""
 from __future__ import annotations
 
 import json
@@ -32,7 +26,6 @@ def clopper_pearson(k: int, n: int, a: float = 0.05) -> tuple[float, float]:
 
 
 def boot_indices(spk_label: pd.Series, n_boot: int, rng) -> list[list[str]]:
-    """Resample speakers with replacement inside each group."""
     dys = spk_label.index[spk_label == 1].to_numpy()
     ctl = spk_label.index[spk_label == 0].to_numpy()
     return [list(rng.choice(dys, len(dys))) + list(rng.choice(ctl, len(ctl)))
@@ -77,7 +70,6 @@ def bootstrap(n_boot: int = 2000, seed: int = 0) -> dict:
 
 
 def listening(ks=(1, 2, 3, 5, 10, 20, 50, 100), n_rep: int = 2000, seed: int = 0) -> dict:
-    """Speaker-level decision from k utterances drawn at random."""
     rng = np.random.default_rng(seed)
     out = {}
     for r in ["egemaps_xgb", "wavlm_logreg"]:

@@ -1,4 +1,3 @@
-"""Render RESULTS.md from whatever is in results/, no numbers typed by hand."""
 from __future__ import annotations
 
 import argparse
@@ -30,7 +29,6 @@ def main() -> None:
         "every fold trains on 14 speakers and tests on the held-out 15th.", "",
     ]
 
-    # --- corpus ---
     mf = Path(a.manifest)
     if mf.exists():
         m = pd.read_csv(mf)
@@ -61,7 +59,6 @@ def main() -> None:
               "are reported here (only the middle column affects `keep`):", "",
               md_table(drop), ""]
 
-    # --- model comparison ---
     cmp_path = R / "model_comparison.csv"
     if cmp_path.exists():
         L += ["## Model comparison", "",
@@ -70,7 +67,6 @@ def main() -> None:
               "probability over all their utterances, the number that matters for a "
               "screening tool, which sees a person, not an utterance.", ""]
 
-    # --- severity ---
     sev_path = R / "severity_breakdown.csv"
     if sev_path.exists():
         s = pd.read_csv(sev_path)
@@ -82,7 +78,6 @@ def main() -> None:
               "for early screening: by the time a speaker is severe, detection is not "
               "the clinical question. A single pooled accuracy figure hides this.", ""]
 
-    # --- mic confound ---
     mic_path = R / "mic_confound.json"
     if mic_path.exists():
         mc = json.loads(mic_path.read_text())
@@ -104,7 +99,6 @@ def main() -> None:
               "This is why every headline result here fixes the microphone to the "
               "head-mounted channel for **both** groups.", ""]
 
-    # --- shap ---
     shap_path = R / "shap_feature_importance.csv"
     if shap_path.exists():
         sh = pd.read_csv(shap_path).head(15)[["readable", "mean_abs_shap"]]
@@ -115,7 +109,6 @@ def main() -> None:
               "These are computed only on held-out speakers, so they describe "
               "out-of-sample behaviour rather than what the model memorised.", ""]
 
-    # --- per-speaker ---
     for f in sorted(R.glob("folds_*.csv")):
         name = f.stem.replace("folds_", "")
         d = pd.read_csv(f).sort_values(["label", "severity", "speaker"])

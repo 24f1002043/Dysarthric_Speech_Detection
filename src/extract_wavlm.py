@@ -1,12 +1,3 @@
-"""Extract frozen WavLM embeddings (mean+std pooled) for each utterance.
-
-WavLM is never fine-tuned: it is a fixed feature extractor, so the only thing
-learned from TORGO is a small classifier on top. With 15 speakers, fine-tuning
-a 94M-parameter encoder would memorise speakers rather than the disorder.
-
-Runs on GPU (Colab) or CPU. Masked pooling is used so that padding frames
-never contribute to an utterance's embedding.
-"""
 from __future__ import annotations
 
 import argparse
@@ -32,10 +23,11 @@ def load_audio(path: str) -> np.ndarray:
         wav = librosa.resample(wav, orig_sr=sr, target_sr=TARGET_SR)
     m = np.abs(wav).max()
     if m > 0:
-        wav = wav / m                      # peak-normalise: removes gain cues
+        wav = wav / m
     return wav.astype(np.float32)
 
 
+# mean-pool one WavLM layer over time to get a fixed size embedding per clip
 @torch.no_grad()
 def embed_batch(model, wavs: list[np.ndarray], layer: int, device) -> np.ndarray:
     lens = [len(w) for w in wavs]
@@ -49,7 +41,7 @@ def embed_batch(model, wavs: list[np.ndarray], layer: int, device) -> np.ndarray
         mask[i, :L] = 1
 
     out = model(x, attention_mask=mask, output_hidden_states=True)
-    h = out.hidden_states[layer]                          # (B, T, D)
+    h = out.hidden_states[layer]
 
     fl = model._get_feat_extract_output_lengths(
         torch.tensor(lens, device=device)).long()
@@ -82,7 +74,6 @@ def main() -> None:
     df = df[df.keep]
     if a.mic != "both":
         df = df[df.mic == a.mic]
-    # Longest-first keeps padding waste low and surfaces OOM immediately.
     df = df.sort_values("duration", ascending=False).reset_index(drop=True)
 
     if a.threads > 0:
@@ -107,7 +98,7 @@ def main() -> None:
             except Exception as e:
                 tqdm.write(f"  ! {row.utt_id}: {e}")
                 continue
-            if len(w) < 400:                   # shorter than one conv frame
+            if len(w) < 400:
                 continue
             wavs.append(w[:max_len])
             idx.append(i)
@@ -118,7 +109,7 @@ def main() -> None:
             ok.extend(idx)
         except torch.cuda.OutOfMemoryError:
             torch.cuda.empty_cache()
-            for w, i in zip(wavs, idx):        # fall back to one at a time
+            for w, i in zip(wavs, idx):
                 vecs.append(embed_batch(model, [w], layer, device))
                 ok.append(i)
 

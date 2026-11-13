@@ -1,4 +1,3 @@
-"""Aggregate every LOSO run into the tables and figures used in the report."""
 from __future__ import annotations
 
 import argparse

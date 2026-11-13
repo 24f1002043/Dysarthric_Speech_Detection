@@ -1,13 +1,3 @@
-"""Additional experiments for the paper, all on cached features.
-
-  wavlm audit   the microphone audit of mic_confound.py repeated for frozen WavLM
-  pooled        train on both microphones, test on each (multi-condition training)
-  nolevel       cross-microphone transfer once absolute level features are removed
-  leakage       utterance-level K-fold against leave-one-speaker-out
-  seeds         seed sensitivity of the XGBoost headline run
-
-Everything is written to results/paper/.
-"""
 from __future__ import annotations
 
 import argparse
@@ -37,7 +27,6 @@ def _one_fold(X, y, meta, tr, te, kind, seed):
 
 def masked_loso(df, kind, train_mask=None, test_mask=None, label=None,
                 seed=0, n_jobs=4) -> pd.DataFrame:
-    """LOSO where train and test rows can be restricted independently."""
     meta, feats = split_meta_features(df)
     if label is not None:
         meta = meta.assign(label=label)
@@ -93,7 +82,6 @@ def audit(df, kind, tag, out, n_jobs):
         res[name] = score(p)
         print(f"  {tag:14s} {name:22s} acc={res[name]['utt_accuracy']:.3f} "
               f"auc={res[name]['utt_auc']:.3f}", flush=True)
-    # channel probe: the label is the microphone, speakers still held out
     p = masked_loso(df, kind, label=array.astype(int), n_jobs=n_jobs)
     res["C_channel_probe"] = {k: v for k, v in score(p).items() if k.startswith(("utt", "n_utts"))}
     print(f"  {tag:14s} C_channel_probe        acc={res['C_channel_probe']['utt_accuracy']:.3f} "
@@ -102,7 +90,6 @@ def audit(df, kind, tag, out, n_jobs):
 
 
 def leakage(df, kind, n_splits=15, seed=0, n_jobs=4) -> dict:
-    """Same data, same model, but folds are drawn over utterances."""
     meta, feats = split_meta_features(df)
     X, y = feats.to_numpy(np.float32), meta["label"].to_numpy()
     strat = meta["speaker"].astype(str)
@@ -124,7 +111,7 @@ def main() -> None:
     a = ap.parse_args()
     out = Path(a.outdir)
     out.mkdir(parents=True, exist_ok=True)
-    want = lambda k: not a.only or k in a.only.split(",")  # noqa: E731
+    want = lambda k: not a.only or k in a.only.split(",")
 
     ege = pd.read_parquet("features/egemaps.parquet")
 

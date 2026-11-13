@@ -1,18 +1,3 @@
-"""Quantify the TORGO microphone trap instead of just asserting it.
-
-TORGO records every session with a head-mounted mic and an array mic. The two
-channels are trivially distinguishable, so if the microphone is not held
-constant across groups a detector can score near-perfectly while knowing
-nothing about dysarthria. Four experiments:
-
-  A  matched     train head  -> test head    (the protocol used in this project)
-  B  mismatched  train head  -> test array   (how much is channel, not disorder?)
-  C  channel probe            predict WHICH MIC from the same features
-  D  confounded  dysarthric=head vs control=array, then the swap
-
-D is the cautionary result: it looks like the best model in the repo and is
-entirely worthless.
-"""
 from __future__ import annotations
 
 import argparse
@@ -28,7 +13,6 @@ from loso import (_fit, make_model, run_loso, sample_weights,
 
 
 def cross_mic(df: pd.DataFrame, train_mic: str, test_mic: str) -> dict:
-    """LOSO, but the held-out speaker is scored on a different microphone."""
     meta, feats = split_meta_features(df)
     X, y = feats.to_numpy(np.float32), meta["label"].to_numpy()
     rows = []
@@ -56,7 +40,6 @@ def cross_mic(df: pd.DataFrame, train_mic: str, test_mic: str) -> dict:
 
 
 def channel_probe(df: pd.DataFrame) -> dict:
-    """Can the SAME features identify the microphone? (Held-out speakers.)"""
     d = df.copy()
     d["label"] = (d["mic"] == "array").astype(int)
     preds, folds = run_loso(d, kind="xgb", verbose=False)
@@ -66,7 +49,6 @@ def channel_probe(df: pd.DataFrame) -> dict:
 
 
 def confounded(df: pd.DataFrame, dys_mic: str, ctl_mic: str) -> dict:
-    """Deliberately align microphone with group, the mistake to avoid."""
     sub = df[((df.label == 1) & (df.mic == dys_mic)) |
              ((df.label == 0) & (df.mic == ctl_mic))].reset_index(drop=True)
     preds, folds = run_loso(sub, kind="xgb", verbose=False)

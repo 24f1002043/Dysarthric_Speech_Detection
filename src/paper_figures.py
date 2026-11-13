@@ -1,4 +1,3 @@
-"""Figures for the paper, drawn from results/ and results/paper/."""
 from __future__ import annotations
 
 import json

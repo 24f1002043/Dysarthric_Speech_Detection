@@ -1,14 +1,3 @@
-"""Build an utterance-level manifest of the TORGO corpus.
-
-Layout produced by scripts/fetch_torgo.sh:
-    data/TORGO/<SPK>/Session<N>[_3]/wav_headMic/<uid>.wav
-    data/TORGO/<SPK>/Session<N>[_3]/wav_arrayMic/<uid>.wav
-    data/TORGO/<SPK>/Session<N>[_3]/prompts/<uid>.txt
-
-The manifest records BOTH microphones so that the choice of microphone is an
-explicit experimental variable rather than an accident of what happened to be
-on disk (see README, "The microphone trap").
-"""
 from __future__ import annotations
 
 import argparse
@@ -20,15 +9,9 @@ import pandas as pd
 import soundfile as sf
 from tqdm import tqdm
 
-# --- Speaker metadata -------------------------------------------------------
-# 8 dysarthric + 7 control speakers.
 DYSARTHRIC = ["F01", "F03", "F04", "M01", "M02", "M03", "M04", "M05"]
 CONTROL = ["FC01", "FC02", "FC03", "MC01", "MC02", "MC03", "MC04"]
 
-# Severity of the dysarthric speakers, grouped from the Frenchay Dysarthria
-# Assessment intelligibility scores reported in Rudzicz et al. (2012).
-# These groupings follow the convention used throughout the TORGO literature.
-# Controls are not assessed (the corpus assumes normal function) -> "control".
 SEVERITY = {
     "F01": "severe",
     "M01": "severe",
@@ -40,7 +23,6 @@ SEVERITY = {
     "M03": "mild",
 }
 
-# Prompts that are instructions to the participant rather than speech to model.
 NON_SPEECH_PROMPT = re.compile(
     r"(?:xxx|^\s*\[.*\]\s*$|describe .*(?:image|picture)|input/output|"
     r"relax|smile|open (?:your )?mouth|stick out|breathe|swallow)",
@@ -88,7 +70,7 @@ def build(root: Path) -> pd.DataFrame:
                     try:
                         info = sf.info(str(wav))
                         dur, sr = info.duration, info.samplerate
-                    except Exception:            # unreadable / truncated file
+                    except Exception:
                         continue
                     text = read_prompt(prompts, uid)
                     rows.append({
@@ -108,16 +90,6 @@ def build(root: Path) -> pd.DataFrame:
 
 def apply_quality_filter(df: pd.DataFrame, min_dur: float, max_dur: float,
                          require_prompt: bool = False) -> pd.DataFrame:
-    """Drop what is demonstrably not speech, and nothing else by default.
-
-    A missing prompt file is a gap in TORGO's metadata, not evidence that the
-    recording is unusable -- and the gap is not evenly spread across speakers.
-    Dropping on it would quietly remove more of one group than the other, which
-    is the kind of silent filtering this project is trying to avoid. So by
-    default an utterance is kept unless its prompt is explicitly an instruction
-    ("[relax your mouth]") or its duration is implausible. Pass
-    --require-prompt to use only utterances with a known transcript.
-    """
     df = df.copy()
     prompt = df["prompt"].fillna("")
     df["is_speech_prompt"] = ~prompt.str.contains(NON_SPEECH_PROMPT, na=False)

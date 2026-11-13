@@ -1,11 +1,3 @@
-"""Tests for the claims the whole project rests on.
-
-The headline numbers are only meaningful if the evaluation really is
-speaker-disjoint and really is balanced. These check that directly rather than
-trusting the prose.
-
-    python -m pytest tests -q
-"""
 from __future__ import annotations
 
 import sys
@@ -16,15 +8,10 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from loso import run_loso, sample_weights, split_meta_features, summarise  # noqa: E402
+from loso import run_loso, sample_weights, split_meta_features, summarise
 
 
 def synthetic(n_speakers: int = 6, per_speaker: int = 40, seed: int = 0) -> pd.DataFrame:
-    """Speakers whose class is separable, with a strong per-speaker offset.
-
-    The offset is the point: a model that latches onto speaker identity will
-    do well in-sample and badly under LOSO.
-    """
     rng = np.random.default_rng(seed)
     rows = []
     for s in range(n_speakers):
@@ -65,14 +52,12 @@ def test_every_speaker_is_held_out_exactly_once():
     preds, folds = run_loso(df, kind="logreg", verbose=False)
     assert len(folds) == df.speaker.nunique()
     assert folds.speaker.is_unique
-    # every utterance is predicted exactly once, by a model that never saw it
     assert len(preds) == len(df)
     assert preds.utt_id.is_unique
 
 
 def test_sample_weights_balance_speakers_and_classes():
     df = synthetic(n_speakers=4, per_speaker=10)
-    # make one speaker dominate the utterance count
     df = pd.concat([df, df[df.speaker == "S0"].iloc[:200]], ignore_index=True)
     meta, _ = split_meta_features(df)
     w = sample_weights(meta)
@@ -88,7 +73,6 @@ def test_sample_weights_balance_speakers_and_classes():
 
 
 def test_loso_is_harder_than_a_random_split():
-    """Sanity check that LOSO is measuring something stricter."""
     from sklearn.linear_model import LogisticRegression
     from sklearn.model_selection import cross_val_score
 

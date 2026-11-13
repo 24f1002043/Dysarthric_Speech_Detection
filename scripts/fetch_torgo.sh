@@ -1,15 +1,4 @@
 #!/usr/bin/env bash
-# Robust TORGO fetch: resumable download -> verify size -> extract audio -> delete archive.
-#
-# A naive `curl | tar -xj` cannot be retried: if the connection drops mid-stream
-# curl restarts from byte 0 and the tar stream is corrupt, silently leaving out
-# whole speakers. So the archive is staged on disk, checked against the server's
-# Content-Length, and only then extracted.
-#
-# Only acoustic + prompt data is extracted; the articulatory (.pos) and video
-# bulk is discarded, which keeps ~18GB of corpus down to a few hundred MB.
-#
-# Licence: free for academic (non-profit) use; cite Rudzicz et al. (2012).
 set -uo pipefail
 BASE="http://www.cs.toronto.edu/~complingweb/data/TORGO"
 DEST="${1:?usage: fetch_torgo.sh <dest_dir> <set> [staging_dir]}"
@@ -38,8 +27,6 @@ if [ -z "$want" ] || [ "$have" != "$want" ]; then
 fi
 
 echo "[$(date +%T)] $SET: extracting"
-# --force-local: without it GNU tar reads a Windows path like C:/... as a
-# remote "host:path" spec and fails with "Cannot connect to C".
 tar --force-local -xjf "$AR" -C "$DEST" --wildcards \
     '*/wav_headMic/*' '*/wav_arrayMic/*' '*/prompts/*'
 rc=$?

@@ -1,14 +1,3 @@
-"""Score a single recording for signs of dysarthria.
-
-This is the screening-shaped end of the project: one short wav in, a
-probability and the acoustic reasons for it out.
-
-    python src/predict.py --train features/egemaps.parquet --wav sample.wav
-
-The model is fit on every TORGO speaker, so the probability is only meaningful
-for a speaker the model has never heard. It is a research prototype: it is not
-a diagnosis, and it is not validated for clinical use.
-"""
 from __future__ import annotations
 
 import argparse

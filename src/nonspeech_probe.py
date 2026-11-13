@@ -1,14 +1,3 @@
-"""Can dysarthria be 'detected' from the quietest frames of a recording?
-
-If a classifier that only sees the low-energy frames of each utterance (pauses,
-leading and trailing silence, the noise floor) separates the groups, then some
-of the group difference lives in the recording rather than in the speech.
-
-Three descriptors per utterance, each 40 log-mel bands x (mean, std):
-  quiet        the quietest 10% of frames
-  quiet_shape  the same, with each frame's mean log-energy removed (colour only)
-  loud         the loudest 50% of frames, for reference
-"""
 from __future__ import annotations
 
 import argparse
@@ -33,7 +22,7 @@ def describe(path: str) -> np.ndarray | None:
     if len(wav) < N_FFT * 4:
         return None
     S = np.abs(librosa.stft(wav, n_fft=N_FFT, hop_length=HOP, center=False)) ** 2
-    logmel = np.log(MEL @ S + 1e-10).T                    # (frames, mels)
+    logmel = np.log(MEL @ S + 1e-10).T
     energy = logmel.mean(axis=1)
     order = np.argsort(energy)
     nq = max(3, int(round(0.10 * len(order))))

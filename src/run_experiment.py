@@ -1,4 +1,3 @@
-"""Run a leave-one-speaker-out experiment and write predictions + metrics."""
 from __future__ import annotations
 
 import argparse
@@ -16,29 +15,14 @@ LEVEL_FEATURE = re.compile(
 
 
 def drop_level_features(df: pd.DataFrame) -> pd.DataFrame:
-    """Remove absolute loudness / sound-level features.
-
-    SHAP puts an absolute loudness statistic at the top of the ranking, and
-    absolute level is partly a property of the recording (gain, distance,
-    session) rather than of the speaker's speech -- though reduced vocal
-    intensity is also a genuine clinical sign. Only genuinely absolute
-    statistics are removed; scale-invariant ones such as the coefficient of
-    variation are kept, since those survive any change of gain.
-    """
     drop = [c for c in df.columns if LEVEL_FEATURE.match(c)]
     print(f"  dropping {len(drop)} absolute-level features: "
           f"{', '.join(drop[:4])}{' ...' if len(drop) > 4 else ''}")
     return df.drop(columns=drop)
 
 
+# keep only prompts read by both groups so content does not leak the label
 def restrict_to_shared_prompts(df: pd.DataFrame, manifest: str) -> pd.DataFrame:
-    """Keep only prompts that BOTH groups actually spoke.
-
-    TORGO speakers do not all read the same material, so a detector could in
-    principle key on *what* was said rather than *how*. Restricting to the
-    shared prompt set removes that escape route; if accuracy survives, the
-    decision was about the speech, not the script.
-    """
     if "prompt" not in df.columns:
         man = pd.read_csv(manifest, usecols=["utt_id", "prompt"])
         df = df.merge(man, on="utt_id", how="left")
@@ -87,8 +71,6 @@ def main() -> None:
 
     out = Path(a.outdir)
     out.mkdir(parents=True, exist_ok=True)
-    # the prompt text is recoverable from the manifest via utt_id; dropping
-    # it keeps the committed prediction files small
     preds.drop(columns=["prompt"], errors="ignore").to_csv(
         out / f"preds_{a.name}.csv", index=False)
     folds.to_csv(out / f"folds_{a.name}.csv", index=False)
